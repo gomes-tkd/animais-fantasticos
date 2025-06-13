@@ -1,14 +1,21 @@
 function initTabNavigation() {
-    const tabMenu = document.querySelectorAll(".js-tabmenu li");
-    const tabContent = document.querySelectorAll(".js-tabcontent section");
+    const tabMenu = document.querySelectorAll('[data-tab="menu"] li');
+    const tabContent = document.querySelectorAll('[data-tab="content"] section');
+
+    console.log(tabMenu);
+    console.log(tabContent);
     const activeClass = "active";
 
     if (tabContent.length && tabMenu.length) {
-        tabContent[0].classList.add(activeClass);
+        tabContent[0].classList.add("active");
 
         function activeTab(index) {
-            tabContent.forEach((section) => section.classList.remove(activeClass));
-            tabContent[index].classList.add(activeClass);
+            tabContent.forEach((section) => {
+                section.classList.remove("active")
+            });
+
+            const directionAnimation = tabContent[index].dataset.anime;
+            tabContent[index].classList.add("active", directionAnimation);
         }
 
         tabMenu.forEach((itemMenu, index) => (
@@ -20,7 +27,7 @@ function initTabNavigation() {
 initTabNavigation();
 
 function initAccordion() {
-    const accordionList = document.querySelectorAll(".js-accordion dt");
+    const accordionList = document.querySelectorAll('[data-anime="accordion"] dt');
     const activeClass = "active";
 
     if (accordionList.length) {
@@ -39,7 +46,7 @@ function initAccordion() {
 initAccordion();
 
 function initScrollSmooth() {
-    const internalLinks = document.querySelectorAll(".js-menu a[href^='#']");
+    const internalLinks = document.querySelectorAll("[data-menu='suave'] a[href^='#']");
 
     function scrollToSection(event) {
         event.preventDefault();
@@ -62,7 +69,7 @@ function initScrollSmooth() {
 initScrollSmooth();
 
 function initAnimationAutoScroll() {
-    const sections = document.querySelectorAll(".js-scroll");
+    const sections = document.querySelectorAll("[data-animation='scroll']");
 
     if (sections.length) {
         const windowHalf = (window.innerHeight * 0.6);
