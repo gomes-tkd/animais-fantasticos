@@ -1,0 +1,87 @@
+/* modal position */
+.modal-container {
+    height: 100vh;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 200000;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+/* modal animation */
+.modal-content.active {
+    display: flex;
+}
+
+@keyframes modal-animation {
+    from {
+        opacity: 0;
+        transform: translate3d(0, -1.875rem, 0);
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+.active .modal {
+    animation: modal-animation .3s forwards;
+}
+
+/* modal box */
+.modal {
+    min-width: 18.75rem;
+    background: #eee;
+    padding: 2.5rem;
+    border: 0.625rem solid #fb5;
+    box-shadow: 0 0 0 0.625rem #eee;
+    position: relative;
+}
+
+/* close button */
+.close-button {
+    position: absolute;
+    top: -1.875rem;
+    right: -1.875rem;
+    width: 3.125rem;
+    height: 3.125rem;
+    border: 0.25rem solid #fff;
+    border-radius: 50%;
+    box-shadow: 0 0.25rem 0.25rem 0 rgba(0, 0, 0, 0.5);
+    background: #e54;
+    font-size: 1.25rem;
+    color: #fff;
+    font-family: "IBM Plex Sans", monospace;
+    cursor: pointer;
+}
+
+.modal label {
+    font-family: "IBM Plex Mono", monospace;
+    display: block;
+    font-weight: bold;
+    margin: 1rem 0 0.5rem 0;
+}
+
+.modal input {
+    width: 100%;
+    padding: 0.7rem 0.5rem;
+    box-sizing: border-box;
+}
+
+/* selecting only submit type button*/
+.modal button[type="submit"] {
+    display: block;
+    background: #e54;
+    border: none;
+    border-radius: 0.25rem;
+    padding: 0.7rem 2rem;
+    font-size: 1rem;
+    color: #fff;
+    font-family: "IBM Plex Mono", monospace;
+    margin-top: 1rem;
+    font-weight: bold;
+}
