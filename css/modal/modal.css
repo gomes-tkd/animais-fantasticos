@@ -13,7 +13,7 @@
 }
 
 /* modal animation */
-.modal-content.active {
+.modal-container.active-modal {
     display: flex;
 }
 
@@ -28,7 +28,7 @@
     }
 }
 
-.active .modal {
+.active-modal .modal {
     animation: modal-animation .3s forwards;
 }
 
